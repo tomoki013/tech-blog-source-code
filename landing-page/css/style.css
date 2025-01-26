@@ -1,0 +1,92 @@
+:root {
+    --main-color: #333;
+    --bg-color: #f4f4f9;
+}
+
+* {
+	box-sizing: border-box;
+	word-break: auto-phrase;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 16px;
+	overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--main-color);
+}
+
+header {
+    margin: 0;
+    padding: 0.125rem 0;
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    text-align: center;
+}
+
+.grid_container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr, 1fr;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+section {
+    border: 1px solid var(--main-color);
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 0.5rem;
+}
+section:nth-of-type(odd) {
+    grid-column: 1/2;
+}
+section:nth-of-type(even) {
+    grid-column: 2/2;
+}
+
+section h2 {
+    text-decoration: underline;
+}
+
+section a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 0.25rem;
+}
+
+section a:hover {
+    background-color: color-mix(in srgb, var(--main-color), #fff 10%);
+}
+
+footer {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 1rem;
+}
+
+/* 768px以下のスタイル */
+@media (max-width: 768px) {
+    html {
+        font-size: 12px;
+    }
+
+    .grid_container {
+        grid-template-columns: 1;
+    }
+
+    section:nth-of-type(odd), section:nth-of-type(even) {
+        grid-column: 1/1;
+    }
+}
