@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSのdisplayプロパティについて</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>CSSのdisplayプロパティについて</h1>
+        <nav>
+            <ul class="nav_list">
+                <li class="nav_item"><a href="#block">ブロック要素</a></li>
+                <li class="nav_item"><a href="#inline">インライン要素</a></li>
+                <li class="nav_item"><a href="#inline-block">インラインブロック要素</a></li>
+                <li class="nav_item"><a href="#none">noneプロパティ</a></li>
+                <li class="nav_item"><a href="#flex">flexボックス</a></li>
+                <li class="nav_item"><a href="#grid">gridレイアウト</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ブロック要素 -->
+        <details id="block">
+            <summary>ブロック要素</summary>
+            <div class="block">
+                <p>この要素はブロック要素です。</p>
+            </div>
+            <div class="block">
+                <p>ブロック要素はサイズを変更することも可能です。</p>
+            </div>
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;div class="block"&gt;
+    &lt;p&gt;この要素はブロック要素です。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="block"&gt;
+    &lt;p&gt;ブロック要素はサイズを変更することも可能です。&lt;/p&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.block {
+    display: block;
+}
+.block:nth-of-type(2) {
+    height: 100px;
+}
+                </code>
+            </pre>
+        </details>
+
+        <!-- インライン要素 -->
+        <details id="inline">
+            <summary>インライン要素</summary>
+            <div class="inline">
+                <p>この要素はインライン要素です。</p>
+            </div>
+            <div class="inline">
+                <p>インライン要素はコンテンツの幅になります。</p>
+            </div>
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;div class="inline"&gt;
+    &lt;p&gt;この要素はインライン要素です。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="inline"&gt;
+    &lt;p&gt;インライン要素はコンテンツの幅になります。&lt;/p&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.inline {
+    display: inline;
+}
+                </code>
+            </pre>
+        </details>
+
+        <!-- インラインブロック要素 -->
+        <details id="inline-block">
+            <summary>インラインブロック要素</summary>
+            <div class="inline-block">
+                <p>この要素はインラインブロック要素です。</p>
+            </div>
+            <div class="inline-block">
+                <p>インラインブロック要素はサイズを変更することができます。</p>
+            </div>
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;div class="inline-block"&gt;
+    &lt;p&gt;この要素はインラインブロック要素です。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="inline-block"&gt;
+    &lt;p&gt;インラインブロック要素はサイズを変更することができます。&lt;/p&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.inline-block {
+    display: inline-block;
+    width: 40%;
+}
+                </code>
+            </pre>
+        </details>
+
+        <!-- noneプロパティ -->
+        <details id="none">
+            <summary>noneプロパティ</summary>
+            <div>
+                <p>この要素の下にnoneプロパティを指定した要素があります。</p>
+                <p>ブラウザの開発者モードで確認してみてください。</p>
+            </div>
+            <div class="none">
+                <p>この要素はnoneプロパティを指定して非表示にしています。</p>
+            </div>
+            <div>
+                <p>noneプロパティを指定するとレイアウトから削除されます。</p>
+            </div>
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;div&gt;
+    &lt;p&gt;この要素の下にnoneプロパティを指定した要素があります。&lt;/p&gt;
+    &lt;p&gt;ブラウザの開発者モードで確認してみてください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="none"&gt;
+    &lt;p&gt;この要素はnoneプロパティを指定して非表示にしています。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;p&gt;noneプロパティを指定するとレイアウトから削除されます。&lt;/p&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.none {
+    display: none;
+}
+                </code>
+            </pre>
+        </details>
+
+        <!-- flexBox -->
+        <details id="flex">
+            <summary>flexボックス</summary>
+            <div class="flex_box">
+                <div class="flex_item">flexは要素を横並びにできます。</div>
+                <div class="flex_item">配置を柔軟に変更することができます。</div>
+                <div class="flex_item">レスポンシブデザインにも便利です。</div>
+            </div>
+            <div class="flex_box">
+                <div class="flex_item">flexは要素を縦並びにもできます。</div>
+                <div class="flex_item">順番も簡単に変えられます。</div>
+                <div class="flex_item"><code>flex-direction: column-reverse;</code>を指定するだけです。</div>
+            </div>
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;div class="flex_box"&gt;
+    &lt;div class="flex_item"&gt;flexは要素を横並びにできます。&lt;/div&gt;
+    &lt;div class="flex_item"&gt;配置を柔軟に変更することができます。&lt;/div&gt;
+    &lt;div class="flex_item"&gt;レスポンシブデザインにも便利です。&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="flex_box"&gt;
+    &lt;div class="flex_item"&gt;flexは要素を縦並びにもできます。&lt;/div&gt;
+    &lt;div class="flex_item"&gt;順番も簡単に変えられます。&lt;/div&gt;
+    &lt;div class="flex_item"&gt;&lt;code&gt;flex-direction: column-reverse;&lt;/code&gt;を指定するだけです。&lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.flex_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex_box:nth-of-type(2) {
+    flex-direction: column-reverse;
+}
+.flex_item {
+    border: 1px solid #333;
+    padding: 4px;
+    margin: 4px;
+}
+                </code>
+            </pre>
+        </details>
+
+        <!-- gridレイアウト -->
+        <details id="grid">
+            <summary>gridレイアウト</summary>
+            <div class="grid_container">
+                <div class="grid_item">gridレイアウトは複雑なレイアウトを実装することができます。</div>
+                <div class="grid_item">非常に柔軟に且つ直感的に指定できます。</div>
+                <div class="grid_item">現代のモダンなサイトで頻繁に使用されています。</div>
+                <div class="grid_item">gridレイアウトを使えるようになるとおしゃれなサイトが作れるようになれます。</div>
+                <div class="grid_item">最初は少し難しいと感じるかもしれませんが諦めずにに学習しましょう！   </div>
+            </div>
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;div class="grid_container"&gt;
+    &lt;div class="grid_item"&gt;gridレイアウトは複雑なレイアウトを実装することができます。&lt;/div&gt;
+    &lt;div class="grid_item"&gt;非常に柔車に且つ直感的に指定できます。&lt;/div&gt;
+    &lt;div class="grid_item"&gt;現代のモダンなサイトで頻繁に使用されています。&lt;/div&gt;
+    &lt;div class="grid_item"&gt;gridレイアウトを使えるようになるとおしゃれなサイトが作れるようになれます。&lt;/div&gt;
+    &lt;div class="grid_item"&gt;最初は少し難しいと感じるかもしれませんが諦めずにに学習しましょう！&lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 4px;
+}
+.grid_item {
+    border: 1px solid #333;
+    padding: 4px;
+    margin: 4px;
+}
+.grid_item:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 1 / 4;
+}
+.grid_item:nth-of-type(2) {
+    grid-column: 2 / 4;
+    grid-row: 1;
+}
+.grid_item:nth-of-type(3) {
+    grid-column: 2;
+    grid-row: 2
+}
+.grid_item:nth-of-type(4) {
+    grid-column: 3;
+    grid-row: 2;
+}
+.grid_item:nth-of-type(5) {
+    grid-column: 2 / 4;
+    grid-row: 3;
+}
+                </code>
+            </pre>
+        </details>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span class="copy_right_year"></span> tomoki013 All rights reserved.</p>
+    </footer>
+    
+    <script>
+        const date = new Date();
+        const year = date.getFullYear();
+        document.querySelector('.copy_right_year').textContent = year;
+    </script>
+
+</body>
+</html>
