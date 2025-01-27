@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSで文字を中央寄せする方法をとその実践例</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>CSSで文字を中央寄せする方法をとその実践例</h1>
+        <nav>
+            <ul class="nav_list">
+                <li class="nav_item"><a href="#textAlignCenter">text-align:center;</a></li>
+                <li class="nav_item"><a href="#margin0Auto">margin:0 auto;</a></li>
+                <li class="nav_item"><a href="#flexbox">display:flex;</a></li>
+                <li class="nav_item"><a href="#gridLayout">display:grid;</a></li>
+                <li class="nav_item"><a href="#position">position:absolute;</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- text-align: center; -->
+        <div id="textAlignCenter">
+            <h2>text-align: center;を使う方法</h2>
+            <section class="text_align_center">
+                <h3>親要素に<code>text-align: center;を適用した例</code></h3>
+                <p>ブロック要素の中央寄せの文字</p>
+                <span>インライン要素の文字</span>
+                <img src="https://picsum.photos/200/300" alt="ランダムな画像">
+                <div style="display: flex;">
+                    <p>親要素にflexやgridを適用した文字</p>
+                </div>
+            </section>
+            <hr>
+            <section class="text_align">
+                <h3>子要素に直接<code>text-align: center;を適用した例</code></h3>
+                <p>ブロック要素の中央寄せの文字</p>
+                <span>インライン要素の文字</span>
+                <img src="https://picsum.photos/200/300" alt="ランダムな画像">
+                <div style="display: flex;">
+                    <p>親要素にflexやgridを適用した文字</p>
+                </div>
+            </section>
+
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;section class="text_align_center"&gt;
+    &lt;h3&gt;親要素に&lt;code&gt;text-align: center;&lt;/code&gt;を適用した例&lt;/h3&gt;
+    &lt;p&gt;ブロック要素の中央寄せの文字&lt;/p&gt;
+    &lt;span&gt;インライン要素の文字&lt;/span&gt;
+    &lt;img src="https://picsum.photos/200/300" alt="ランダムな画像"&gt;
+    &lt;div style="display: flex;"&gt;
+        &lt;p&gt;親要素にflexやgridを適用した文字&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;hr&gt;
+&lt;section class="text_align"&gt;
+    &lt;h3&gt;子要素に直接&lt;code&gt;text-align: center;&lt;/code&gt;を適用した例&lt;/h3&gt;
+    &lt;p&gt;ブロック要素の中央寄せの文字&lt;/p&gt;
+    &lt;span&gt;インライン要素の文字&lt;/span&gt;
+    &lt;img src="https://picsum.photos/200/300" alt="ランダムな画像"&gt;
+    &lt;div style="display: flex;"&gt;
+        &lt;p&gt;親要素にflexやgridを適用した文字&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.text_align_center {
+    text-align: center;
+}
+.text_align > p, .text_align > span, .text_align > img, .text_align > div > p {
+    text-align: center;
+}
+                </code>
+            </pre>
+        </div>
+
+        <!-- margin: 0 auto; -->
+        <div id="margin0Auto">
+            <h2>margin: 0 auto;を使う方法</h2>
+            <p class="margin_0_auto">ブロック要素の中央寄せの文字</p>
+            <span class="margin_0_auto">インライン要素の文字</span>
+            <img src="https://picsum.photos/200/300" alt="ランダムな画像" class="margin_0_auto" id="margin_0_auto_img">
+            <div style="display: flex;" class="margin_0_auto">
+                <p>親要素にflexやgridを適用した文字</p>
+            </div>
+
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;p class="margin_0_auto"&gt;ブロック要素の中央寄せの文字&lt;/p&gt;
+&lt;span class="margin_0_auto"&gt;インライン要素の文字&lt;/span&gt;
+&lt;img src="https://picsum.photos/200/300" alt="ランダムな画像" class="margin_0_auto" id="margin_0_auto_img"&gt;
+&lt;div style="display: flex;" class="margin_0_auto"&gt;
+    &lt;p&gt;親要素にflexやgridを適用した文字&lt;/p&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.margin_0_auto {
+    width: 50%;
+    margin: 0 auto;
+}
+#margin_0_auto_img {
+    width: 200px;
+    height: 300px;
+}
+                </code>
+            </pre>
+        </div>
+
+        <!-- flexboxを使う方法 -->
+        <div id="flexbox">
+            <h2>display: flex;を使う方法</h2>
+            <div class="flex">
+                <p>中央寄せの文字</p>
+            </div>
+            <div class="flex">
+                <span class="margin_0_auto">インライン要素の文字</span>
+            </div>
+            <div class="flex">
+                <img src="https://picsum.photos/200/300" alt="ランダムな画像" class="margin_0_auto" id="margin_0_auto_img">
+            </div>
+
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;div class="flex"&gt;
+    &lt;p&gt;中央寄せの文字&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="flex"&gt;
+    &lt;span class="margin_0_auto"&gt;インライン要素の文字&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="flex"&gt;
+    &lt;img src="https://picsum.photos/200/300" alt="ランダムな画像" class="margin_0_auto" id="margin_0_auto_img"&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+                </code>
+            </pre>
+        </div>
+
+        <!-- CSS gridを使う方法 -->
+        <div id="gridLayout">
+            <h2>display: grid;を使う方法</h2>
+            <div class="grid">
+                <p>中央寄せの文字</p>
+            </div>
+            <div class="grid">
+                <span class="margin_0_auto">インライン要素の文字</span>
+            </div>
+            <div class="grid">
+                <img src="https://picsum.photos/200/300" alt="ランダムな画像" class="margin_0_auto" id="margin_0_auto_img">
+            </div>
+
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;div class="grid"&gt;
+    &lt;p&gt;中央寄せの文字&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="grid"&gt;
+    &lt;span class="margin_0_auto"&gt;インライン要素の文字&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="grid"&gt;
+    &lt;img src="https://picsum.photos/200/300" alt="ランダムな画像" class="margin_0_auto" id="margin_0_auto_img"&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.grid {
+    display: grid;
+    place-items: center;
+}
+                </code>
+            </pre>
+        </div>
+
+        <!-- 絶対位置指定を使う方法 -->
+         <div id="position">
+            <h2>絶対位置指定を使う方法</h2>
+            <div class="relative">
+                <p class="absolute">中央寄せの文字</p>
+            </div>
+            <div class="relative">
+                <span class="absolute">インライン要素の文字</span>
+            </div>
+            <div class="relative">
+                <img src="https://picsum.photos/200/300" alt="ランダムな画像" class="absolute">
+            </div>
+
+            <p>ソースコード：</p>
+            <pre>
+                <code>
+&lt;div class="relative"&gt;
+    &lt;p class="absolute"&gt;中央寄せの文字&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="relative"&gt;
+    &lt;span class="absolute"&gt;インライン要素の文字&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="relative"&gt;
+    &lt;img src="https://picsum.photos/200/300" alt="ランダムな画像" class="absolute"&
+&lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+.relative {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+.absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+                </code>
+            </pre>
+         </div>
+
+    </main>
+    
+    <footer>
+        <p>&copy; <span id="currentYear"></span> tomoki013 All rights reserved.</p>
+    </footer>
+
+    <script>
+        const currentYear = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = currentYear;
+    </script>
+    
+</body>
+</html>
